@@ -1,7 +1,7 @@
 import './css/styles.css';
-import API from './fetchCountries';
+import API from './fetch';
 import Notiflix from 'notiflix';
-var debounce = require('lodash.debounce');
+
 
 
 
