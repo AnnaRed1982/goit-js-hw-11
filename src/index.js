@@ -11,17 +11,18 @@ formREF.addEventListener('submit', onSearch);
 function onSearch(evt) {
   evt.preventDefault();
 
-  const searchQuery = evt.currentTurget.elements.searchQuery.value;
+  //   const searchQuery = evt.currentTurget.elements.searchQuery.value;
 
-  const options = {
-    headers: {
-      Authorization: '32381232-0d08b52c11723d23aba771294',
-    },
-  };
+  //   const options = {
+  //     headers: {
+  //       Authorization: '32381232-0d08b52c11723d23aba771294',
+  //     },
+  //   };
 
-  const url = 'https://pixabay.com/api/';
+  const url =
+    'https://pixabay.com/api/?key=32381232-0d08b52c11723d23aba771294&q=yellow+flowers&image_type=photo&orientation=horizontal&safesearch=true';
 
-  fetch(url, options)
+  fetch(url)
     .then(response => response.json())
     .then(console.log);
 }
