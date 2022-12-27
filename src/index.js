@@ -11,7 +11,7 @@ formREF.addEventListener('submit', onSearch);
 function onSearch(evt) {
   evt.preventDefault();
 
-  //   const searchQuery = evt.currentTurget.elements.searchQuery.value;
+  const searchQuery = evt.currentTarget.elements.searchQuery.value;
 
   //   const options = {
   //     headers: {
@@ -19,8 +19,7 @@ function onSearch(evt) {
   //     },
   //   };
 
-  const url =
-    'https://pixabay.com/api/?key=32381232-0d08b52c11723d23aba771294&q=yellow+flowers&image_type=photo&orientation=horizontal&safesearch=true';
+  const url = `https://pixabay.com/api/?key=32381232-0d08b52c11723d23aba771294&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
 
   fetch(url)
     .then(response => response.json())
@@ -32,3 +31,23 @@ function onSearch(evt) {
 //     .then(renderCountryList)
 //     .catch(onCatchError);
 // }
+
+{
+  /* <div class="photo-card">
+  <img src="" alt="" loading="lazy" />
+  <div class="info">
+    <p class="info-item">
+      <b>Likes</b>
+    </p>
+    <p class="info-item">
+      <b>Views</b>
+    </p>
+    <p class="info-item">
+      <b>Comments</b>
+    </p>
+    <p class="info-item">
+      <b>Downloads</b>
+    </p>
+  </div>
+</div>; */
+}
