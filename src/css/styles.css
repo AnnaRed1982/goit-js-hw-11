@@ -24,9 +24,9 @@ img {
 }
 .gallery {
   display: flex;
-  flex-basis: calc((100% - 30px)/4);
   flex-wrap: wrap;
   gap: 10px;
+  flex-basis: calc((100% - 30px) / 4);
 }
 .photo-card {
   display: flex;
@@ -40,4 +40,6 @@ img {
 .info-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
