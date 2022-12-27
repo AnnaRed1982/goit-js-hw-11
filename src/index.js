@@ -6,6 +6,8 @@ const axios = require('axios').default;
 formREF = document.querySelector('#search-form');
 galleryREF = document.querySelector('.gallery');
 
+const API_KEY = '32381232-0d08b52c11723d23aba771294';
+
 formREF.addEventListener('submit', onSearch);
 
 function onSearch(evt) {
@@ -19,7 +21,7 @@ function onSearch(evt) {
   //     },
   //   };
 
-  const url = `https://pixabay.com/api/?key=32381232-0d08b52c11723d23aba771294&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
+  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
 
   fetch(url)
     .then(response => response.json())
