@@ -23,7 +23,7 @@ function onSearch(evt) {
 
   fetch(url)
     .then(response => response.json())
-    .then(console.log);
+    .then(renderImages);
 }
 
 // function onInput() {
@@ -31,46 +31,27 @@ function onSearch(evt) {
 //     .then(renderCountryList)
 //     .catch(onCatchError);
 // }
-function renderImages(images) {
-  return images
-    .map(image => {
-      `<div class="photo-card">
-            <img src="" alt="" loading="lazy" />
-            <div class="info">
-                <p class="info-item">
-                    <b>Likes</b>
-                </p>
-                <p class="info-item">
-                    <b>Views</b>
-                </p>
-                <p class="info-item">
-                    <b>Comments</b>
-                </p>
-                <p class="info-item">
-                    <b>Downloads</b>
-                </p>
-            </div>
-    </div>`;
+function renderImages({ hits }) {
+  const markup = hits
+    .map(hit => {
+      return `<div class="photo-card">
+                <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" />
+                <div class="info">
+                    <p class="info-item">
+                        <b>Likes${hit.likes}</b>
+                    </p>
+                    <p class="info-item">
+                        <b>Views${hit.views}</b>
+                    </p>
+                    <p class="info-item">
+                        <b>Comments${hit.comments}</b>
+                    </p>
+                    <p class="info-item">
+                        <b>Downloads${hit.downloads}</b>
+                    </p>
+                </div>
+             </div>`;
     })
-    .join();
-}
-
-{
-  /* <div class="photo-card">
-  <img src="" alt="" loading="lazy" />
-  <div class="info">
-    <p class="info-item">
-      <b>Likes</b>
-    </p>
-    <p class="info-item">
-      <b>Views</b>
-    </p>
-    <p class="info-item">
-      <b>Comments</b>
-    </p>
-    <p class="info-item">
-      <b>Downloads</b>
-    </p>
-  </div>
-</div>; */
+    .join('');
+  galleryREF.innerHTML = markup;
 }
