@@ -1,12 +1,10 @@
 import './css/styles.css';
-import API from './fetch';
+import API from './API';
 import Notiflix from 'notiflix';
 const axios = require('axios').default;
 
 formREF = document.querySelector('#search-form');
 galleryREF = document.querySelector('.gallery');
-
-const API_KEY = '32381232-0d08b52c11723d23aba771294';
 
 formREF.addEventListener('submit', onSearch);
 
@@ -15,29 +13,20 @@ function onSearch(evt) {
 
   const searchQuery = evt.currentTarget.elements.searchQuery.value;
 
-  //   const options = {
-  //     headers: {
-  //       Authorization: '32381232-0d08b52c11723d23aba771294',
-  //     },
-  //   };
-
-  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(renderImages);
+  API.fetchImages(searchQuery.trim()).then(renderImages).catch(onCatchError);
 }
 
-// function onInput() {
-//   API.fetchCountries(inputREF.value.trim())
-//     .then(renderCountryList)
-//     .catch(onCatchError);
-// }
 function renderImages({ hits }) {
+  if (hits.length === 0) {
+    Notiflix.Notify.failure(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+    return;
+  }
   const markup = hits
     .map(hit => {
       return `<div class="photo-card">
-                <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" />
+                <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy"/>
                 <div class="info">
                     <p class="info-item">
                         <b>Likes</b>${hit.likes}
@@ -56,4 +45,16 @@ function renderImages({ hits }) {
     })
     .join('');
   galleryREF.innerHTML = markup;
+}
+
+function onCatchError(error) {
+  if ('failed') {
+    Notiflix.Notify.failure(`${error}`);
+    return;
+  }
+  // if ((error = '404')) {
+  //   Notiflix.Notify.failure('Oops, there is no country with that name');
+  //   return;
+  // }
+  else Notiflix.Notify.failure(`${error}`);
 }
