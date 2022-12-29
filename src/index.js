@@ -6,8 +6,10 @@ const axios = require('axios').default;
 
 const formREF = document.querySelector('.search-form');
 const galleryREF = document.querySelector('.gallery');
+const buttonLoadMore = document.querySelector('.load-more');
 
 formREF.addEventListener('submit', onSearch);
+buttonLoadMore.addEventListener('click', onLoadMore);
 
 function onSearch(evt) {
   evt.preventDefault();
@@ -30,3 +32,4 @@ function onCatchError(error) {
   //   return;
   // }
 }
+function onLoadMore() {}
