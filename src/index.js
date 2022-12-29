@@ -8,6 +8,8 @@ const formREF = document.querySelector('.search-form');
 const galleryREF = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
 
+let searchQuery = '';
+
 formREF.addEventListener('submit', onSearch);
 buttonLoadMore.addEventListener('click', onLoadMore);
 
@@ -15,11 +17,10 @@ function onSearch(evt) {
   evt.preventDefault();
   galleryREF.innerHTML = '';
 
-  const searchQuery = evt.currentTarget.elements.searchQuery.value;
+  searchQuery = evt.currentTarget.elements.searchQuery.value;
+  API.resetPage();
 
-  API.fetchImages(searchQuery.trim())
-    .then(render.renderImages)
-    .catch(onCatchError);
+  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
 }
 
 function onCatchError(error) {
@@ -32,4 +33,6 @@ function onCatchError(error) {
   //   return;
   // }
 }
-function onLoadMore() {}
+function onLoadMore() {
+  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
+}

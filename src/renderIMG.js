@@ -29,7 +29,7 @@ function renderImages({ hits }) {
              </div>`;
     })
     .join('');
-  galleryREF.innerHTML = markup;
+  galleryREF.insertAdjacentHTML('beforeend', markup);
 }
 
 export default { renderImages };
