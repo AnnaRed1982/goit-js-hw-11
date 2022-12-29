@@ -4,8 +4,8 @@ import render from './renderIMG';
 import Notiflix from 'notiflix';
 const axios = require('axios').default;
 
-formREF = document.querySelector('#search-form');
-galleryREF = document.querySelector('.gallery');
+const formREF = document.querySelector('#search-form');
+const galleryREF = document.querySelector('.gallery');
 
 formREF.addEventListener('submit', onSearch);
 
