@@ -11,6 +11,7 @@ formREF.addEventListener('submit', onSearch);
 
 function onSearch(evt) {
   evt.preventDefault();
+  galleryREF.innerHTML = '';
 
   const searchQuery = evt.currentTarget.elements.searchQuery.value;
 

@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 function renderImages({ hits }) {
   if (hits.length === 0) {
     Notiflix.Notify.failure(
