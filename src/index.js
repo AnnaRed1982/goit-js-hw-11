@@ -23,6 +23,10 @@ function onSearch(evt) {
   API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
 }
 
+function onLoadMore() {
+  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
+}
+
 function onCatchError(error) {
   if ('failed') {
     Notiflix.Notify.failure(`${error}`);
@@ -32,7 +36,4 @@ function onCatchError(error) {
   //   Notiflix.Notify.failure('Oops, there is no country with that name');
   //   return;
   // }
-}
-function onLoadMore() {
-  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
 }
