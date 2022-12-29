@@ -1,4 +1,5 @@
 import Notiflix from 'notiflix';
+const galleryREF = document.querySelector('.gallery');
 
 function renderImages({ hits }) {
   if (hits.length === 0) {
