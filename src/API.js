@@ -16,4 +16,12 @@ function fetchImages(searchQuery) {
 function resetPage() {
   page = 1;
 }
-export default { fetchImages, resetPage };
+function returnPage() {
+  return page;
+}
+// function alertTotalHits() {
+//   if (page === 1) {
+//     Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
+//   }
+// }
+export default { fetchImages, resetPage, returnPage };
