@@ -10,6 +10,8 @@ const buttonLoadMore = document.querySelector('.load-more');
 
 let searchQuery = '';
 
+buttonLoadMore.classList.add('is-hidden');
+
 formREF.addEventListener('submit', onSearch);
 buttonLoadMore.addEventListener('click', onLoadMore);
 
@@ -21,6 +23,8 @@ function onSearch(evt) {
   API.resetPage();
 
   API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
+
+  buttonLoadMore.classList.remove('is-hidden');
 }
 
 function onLoadMore() {

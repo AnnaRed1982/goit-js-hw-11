@@ -52,9 +52,9 @@ img {
   margin-right: auto;
   margin-left: auto;
 
-  min-width: 150px;
+  min-width: 100px;
   min-height: 30px;
-  padding: 2px 28px; /*32-2*2 ширина бордера*/
+  padding: 2px 20px; 
 
   background-color: #188ce8;
   color: white;
@@ -64,7 +64,14 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: calc(30 / 16);
- 
-  border-radius: 12px;
+
+  border-radius: 8px;
   border: none;
+}
+
+.is-hidden{
+  display: none;
+}
+.disabled{
+
 }

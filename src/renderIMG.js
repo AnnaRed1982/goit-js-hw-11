@@ -1,7 +1,8 @@
 import Notiflix from 'notiflix';
 const galleryREF = document.querySelector('.gallery');
 
-function renderImages({ hits }) {
+function renderImages({ totalHits, hits }) {
+  Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
   if (hits.length === 0) {
     Notiflix.Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'

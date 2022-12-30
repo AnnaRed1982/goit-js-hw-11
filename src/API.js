@@ -8,6 +8,7 @@ function fetchImages(searchQuery) {
     if (!response.ok) {
       throw new Error(response.status);
     }
+
     page += 1;
     return response.json();
   });
