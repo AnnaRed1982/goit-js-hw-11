@@ -4,19 +4,19 @@ const galleryREF = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
 
 function renderImages({ hits, totalHits }) {
-  if (API.returnPage()-1 === 1) {
-    Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
-  }
-
   let fetchedImagesCount = (API.returnPage() - 1) * 40;
   console.log('counter:', fetchedImagesCount);
 
-  if (fetchedImagesCount >= totalHits) {
+  if (fetchedImagesCount >= totalHits && hits.length > 0) {
     console.log('No more images to load');
     Notiflix.Notify.info(
       "We're sorry, but you've reached the end of search results."
     );
     buttonLoadMore.classList.add('is-hidden');
+  }
+
+  if (API.returnPage() - 1 === 1 && hits.length > 0) {
+    Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
   }
 
   if (hits.length === 0) {
