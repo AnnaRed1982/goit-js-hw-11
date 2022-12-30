@@ -4,7 +4,7 @@ const galleryREF = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
 
 function renderImages({ hits, totalHits }) {
-  let fetchedImagesCount = (API.returnPage() - 1) * 40;
+  let fetchedImagesCount = (API.returnPage() - 1) * API.paginatNumber();
   console.log('counter:', fetchedImagesCount);
 
   if (fetchedImagesCount >= totalHits && hits.length > 0) {
