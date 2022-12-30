@@ -18,17 +18,12 @@ img {
   height: 200px;
 }
 .search-form {
-  /* display: flex;
-  gap: 5px;
-  justify-content: center; */
-
-  /* position: fixed;
-  position: fixed;
-  left: 50%; */
   display: flex;
   gap: 5px;
   justify-content: center;
   position: fixed;
+  left: 0;
+  top: 0;
   margin-bottom: 30px;
   background-color: blueviolet;
   padding-top: 15px;
