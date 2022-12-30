@@ -34,8 +34,11 @@ input {
   border: none;
   border-radius: 4px;
   width: 200px;
-
+  /* position: relative; */
 }
+/* .search-form > button {
+
+} */
 .gallery {
   display: flex;
   flex-wrap: wrap;
