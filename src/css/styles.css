@@ -28,11 +28,12 @@ img {
   display: flex;
   gap: 5px;
   justify-content: center;
-  /* position: fixed; */
+  position: fixed;
   margin-bottom: 30px;
   background-color: blueviolet;
   padding-top: 15px;
   padding-bottom: 15px;
+  width: 100%;
 }
 input {
   border: none;
