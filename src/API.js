@@ -1,6 +1,5 @@
 const API_KEY = '32381232-0d08b52c11723d23aba771294';
 const per_page = 40;
-
 let page = 1;
 
 function fetchImages(searchQuery) {
