@@ -4,8 +4,11 @@ const galleryREF = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');
 
 function renderImages({ hits, totalHits }) {
-  let fetchedImagesCount = (API.returnPage() - 1) * 40;
+  if (API.returnPage()-1 === 1) {
+    Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
+  }
 
+  let fetchedImagesCount = (API.returnPage() - 1) * 40;
   console.log('counter:', fetchedImagesCount);
 
   if (fetchedImagesCount >= totalHits) {
