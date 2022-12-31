@@ -22,10 +22,6 @@ function renderImages({ hits, totalHits }) {
     return;
   }
 
-  if (API.returnPage() === 1) {
-    Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
-  }
-
   const markup = hits
     .map(hit => {
       return `
