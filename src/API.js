@@ -9,11 +9,10 @@ async function fetchImages(searchQuery) {
     const response = await axios.get(
       `https://pixabay.com/api/?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${per_page}&page=${page}`
     );
-    console.log(response);
+
     page += 1;
     return response.data;
   } catch (error) {
-    console.error(error);
     Notiflix.Notify.failure(`${error}`);
   }
 }

@@ -10,14 +10,6 @@ function renderImages({ hits, totalHits }) {
   let fetchedImagesCount = (API.returnPage() - 1) * API.paginatNumber();
   console.log('counter:', fetchedImagesCount);
 
-  if (fetchedImagesCount >= totalHits && hits.length > 0) {
-    console.log('No more images to load');
-    Notiflix.Notify.info(
-      "We're sorry, but you've reached the end of search results."
-    );
-    buttonLoadMore.classList.add('is-hidden');
-  }
-
   if (API.returnPage() - 1 === 1 && hits.length > 0) {
     Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
   }
@@ -60,6 +52,15 @@ function renderImages({ hits, totalHits }) {
     })
     .join('');
   galleryREF.insertAdjacentHTML('beforeend', markup);
+
+  buttonLoadMore.classList.remove('is-hidden');
+  if (fetchedImagesCount >= totalHits && hits.length > 0) {
+    console.log('No more images to load');
+    Notiflix.Notify.info(
+      "We're sorry, but you've reached the end of search results."
+    );
+    buttonLoadMore.classList.add('is-hidden');
+  }
 
   var lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.refresh();

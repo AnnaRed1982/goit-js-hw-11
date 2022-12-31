@@ -22,7 +22,7 @@ function onSearch(evt) {
   searchQuery = evt.currentTarget.elements.searchQuery.value;
   API.resetPage();
   API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
-  buttonLoadMore.classList.remove('is-hidden');
+  // buttonLoadMore.classList.remove('is-hidden');
 }
 
 function onLoadMore() {
