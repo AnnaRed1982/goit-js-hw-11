@@ -10,6 +10,8 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+
+  padding-top: 55px;
 }
 img {
   display: block;
@@ -24,7 +26,6 @@ img {
   position: fixed;
   left: 0;
   top: 0;
-  margin-bottom: 30px;
   background-color: slateblue;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -49,6 +50,7 @@ input {
 a {
   text-decoration: none;
   color: currentColor;
+  object-fit: cover;
   flex-basis: calc((100% - 30px) / 4);
   display: flex;
   flex-direction: column;
