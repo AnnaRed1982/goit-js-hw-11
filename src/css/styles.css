@@ -46,6 +46,7 @@ input:focus {
   border-radius: 4px;
   border: none;
 
+  transform: translateX(-100%);
 }
 .gallery {
   display: flex;
