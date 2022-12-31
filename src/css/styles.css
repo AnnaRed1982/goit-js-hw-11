@@ -39,7 +39,6 @@ input {
 }
 input:focus {
   outline-width: 2px;
-  outline-style: solid;
   outline-color: yellow;
 }
 /* .search-form > button {
