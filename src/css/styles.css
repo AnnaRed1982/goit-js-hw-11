@@ -34,7 +34,7 @@ input {
   border: none;
   border-radius: 4px;
   width: 200px;
-  outline-color:darkcyan;
+  outline-color: darkcyan;
   border: none;
   /* position: relative; */
 }
@@ -46,7 +46,9 @@ input {
   flex-wrap: wrap;
   gap: 10px;
 }
-.photo-card {
+a {
+  text-decoration: none;
+  color: currentColor;
   flex-basis: calc((100% - 30px) / 4);
   display: flex;
   flex-direction: column;
@@ -69,7 +71,6 @@ input {
 
   min-width: 100px;
   min-height: 30px;
-
 
   background-color: slateblue;
   color: white;
