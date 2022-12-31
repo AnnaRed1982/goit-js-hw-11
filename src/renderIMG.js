@@ -61,10 +61,7 @@ function renderImages({ hits, totalHits }) {
     .join('');
   galleryREF.insertAdjacentHTML('beforeend', markup);
 
-  var lightbox = new SimpleLightbox('.gallery a', {
-    // sourceAttr: hits.largeImageURL,
-  });
-
+  var lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.refresh();
 }
 
