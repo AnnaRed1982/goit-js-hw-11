@@ -55,7 +55,7 @@ function renderImages({ hits, totalHits }) {
 
   buttonLoadMore.classList.remove('is-hidden');
   if (fetchedImagesCount >= totalHits && hits.length > 0) {
-    console.log('No more images to load');
+    console.log("We're sorry, but you've reached the end of search results.");
     Notiflix.Notify.info(
       "We're sorry, but you've reached the end of search results."
     );
