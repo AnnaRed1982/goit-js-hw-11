@@ -36,9 +36,11 @@ input {
   width: 200px;
   padding: 0;
   border: none;
-  outline-color: darkcyan;
-
-  outline-width: 4px;
+}
+input:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: yellow;
 }
 /* .search-form > button {
 
@@ -73,6 +75,9 @@ a {
 
   font-size: 18px;
   font-weight: 500;
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .load-more {
   display: block;
