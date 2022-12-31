@@ -3,7 +3,6 @@ import API from './API';
 import render from './renderIMG';
 import Notiflix from 'notiflix';
 
-
 const formREF = document.querySelector('.search-form');
 const galleryREF = document.querySelector('.gallery');
 const buttonLoadMore = document.querySelector('.load-more');

@@ -64,6 +64,17 @@ function renderImages({ hits, totalHits }) {
 
   var lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.refresh();
+
+  if (API.returnPage() > 2) {
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
+  }
 }
 
 export default { renderImages };
