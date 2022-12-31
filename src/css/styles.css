@@ -44,7 +44,8 @@ input:focus {
 }
 .search-form > button {
   padding-top: 2px;
-  border-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   border: none;
 
   transform: translateX(-100%);
@@ -67,6 +68,9 @@ a {
 .photo-card {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 .info {
   display: flex;
