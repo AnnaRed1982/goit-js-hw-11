@@ -35,7 +35,6 @@ export default { fetchImages, resetPage, returnPage, paginatNumber };
 //     if (!response.ok) {
 //       throw new Error(response.status);
 //     }
-
 //     page += 1;
 //     return response.json();
 //   });
