@@ -1,6 +1,6 @@
 import './css/styles.css';
 import API from './API';
-import render from './renderIMG';
+import render from './renderGallery';
 import Notiflix from 'notiflix';
 
 const formREF = document.querySelector('.search-form');
@@ -20,11 +20,11 @@ function onSearch(evt) {
 
   searchQuery = evt.currentTarget.elements.searchQuery.value;
   API.resetPage();
-  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
+  API.fetchImages(searchQuery).then(render.renderGallery).catch(onCatchError);
 }
 
 function onLoadMore() {
-  API.fetchImages(searchQuery).then(render.renderImages).catch(onCatchError);
+  API.fetchImages(searchQuery).then(render.renderGallery).catch(onCatchError);
 }
 
 function onCatchError(error) {

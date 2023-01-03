@@ -16,7 +16,6 @@ async function fetchImages(searchQuery) {
     Notiflix.Notify.failure(`${error}`);
   }
 }
-
 function resetPage() {
   page = 1;
 }

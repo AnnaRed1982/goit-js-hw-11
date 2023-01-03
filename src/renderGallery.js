@@ -1,12 +1,15 @@
 import Notiflix from 'notiflix';
-import API from './API';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const galleryREF = document.querySelector('.gallery');
+import API from './API';
+import renderImgCard from './renderImgCard';
+
+var lightbox = new SimpleLightbox('.gallery a', {});
+
 const buttonLoadMore = document.querySelector('.load-more');
 
-function renderImages({ hits, totalHits }) {
+function renderGallery({ hits, totalHits }) {
   let fetchedImagesCount = (API.returnPage() - 1) * API.paginatNumber();
   console.log('counter:', fetchedImagesCount);
 
@@ -22,32 +25,7 @@ function renderImages({ hits, totalHits }) {
     return;
   }
 
-  const markup = hits
-    .map(hit => {
-      return `
-                  <a class="gallery__item" href="${hit.largeImageURL}">
-                    <div class="photo-card">
-                        <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy"/>
-                        <div class="info">
-                            <p class="info-item">
-                                <b>Likes</b>${hit.likes}
-                            </p>
-                            <p class="info-item">
-                                <b>Views</b>${hit.views}
-                            </p>
-                            <p class="info-item">
-                                <b>Comments</b>${hit.comments}
-                            </p>
-                            <p class="info-item">
-                                <b>Downloads</b>${hit.downloads}
-                            </p>
-                        </div>
-                    </div>
-                 </a>
-             `;
-    })
-    .join('');
-  galleryREF.insertAdjacentHTML('beforeend', markup);
+  renderImgCard.renderImgCard(hits);
 
   buttonLoadMore.classList.remove('is-hidden');
   if (fetchedImagesCount >= totalHits && hits.length > 0) {
@@ -58,7 +36,6 @@ function renderImages({ hits, totalHits }) {
     buttonLoadMore.classList.add('is-hidden');
   }
 
-  var lightbox = new SimpleLightbox('.gallery a', {});
   lightbox.refresh();
 
   if (API.returnPage() > 2) {
@@ -73,4 +50,4 @@ function renderImages({ hits, totalHits }) {
   }
 }
 
-export default { renderImages };
+export default { renderGallery };
